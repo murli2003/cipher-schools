@@ -1,0 +1,316 @@
+What is Python ?
+• Python is a popular programming language.
+• It was created by Guido van Rossum, and released in 1991.
+• It is used for:
+  • web development (server-side),
+  • software development,
+  • mathematics,
+  • system scripting.
+  • Data Science
+
+Why Python?
+• Python works on different platforms (Windows, Mac, Linux, Raspberry Pi, etc).
+• Python has a simple syntax similar to the English language.
+• Python has syntax that allows developers to write programs with fewer lines than some other programming languages.
+--------------------------------------------------------------------------------------------
+Variables
+Defination: Variables in Python are used to store data that can be referenced and manipulated and throughout the program. They act as placeholders for values.
+Use Case in real Life: Variable can be used to store user information in a registration form. For Example: name,age and height could store the respective details of user.
+
+#Assinging values to variables
+name = "Akancha Sah"
+age = 22
+height = 5.2
+----------------------------------------------------------------------------------------------
+Data Types
+Defination: Data types specifify the type of data that a variable can store. Common data types in python are integers,floats,strings,lists,tuples,dictionaries and booleans.
+Use case in real Life: Data types are used to model different kinds of information.For example, a dictionary can store user profiles in a social media application where keys are profile attributes and values are the corresponding data.
+#Integer
+num = 10
+#Inbuilt functions and operations for Integer
+print(abs(num)) # Absolute value
+print(hex(num)) # Hexadecimal representation
+print(bin(num)) # Binary representation
+print(pow(num,2)) # power function(num^2)
+print(divmod(num,3)) # quotient and remainder
+
+#float
+price = 99.99
+#Inbuilt functions and operations for Float
+print(round(price)) #Rounding
+print(abs(price)) # absolute value
+print(int(price)) # convert to integer
+print(float("123.45")) # convert string to float
+print(price.is_integer()) # check if the float is an integer
+
+#string
+greeting = "Hello, pushpa!"
+#Inbuilt functions and operations for string
+print(greeting.lower()) #convert to lower case
+print(greeting.upper()) # conver to upper case.
+print(greeting.replace("pushpa","Akancha")) # Replace substring
+print(greeting.split()) # split string into a list
+print(greeting.find("pushpa")) #find substring
+print(len(greeting)) #Length of the string
+
+#list
+fruits = ["apple", "banana" , "cherry"]
+#Inbuilt functions and operations for List
+fruits.append("orange") #Append an element
+fruits.extend(["grape", "melon"]) # Extend list with another list
+fruits.remove("banana") # Remove an element
+fruits.pop() # Remove last element
+fruits.sort() # sort the list
+print(fruits)
+fruits[2]
+print(len(fruits)) #Length of list
+print(fruits.index("cherry")) #Find index of element
+print("apple" in fruits) #check if the element is in list
+#Tuple(immutable) we cannot change the element in tuple
+coordinates = (10.0, 20.0)
+coordinates
+print(coordinates.count(10.0)) #count occurrence of a value
+print(coordinates.index(20.0)) #Find index of element
+print(len(coordinates)) # Length of the tuple
+#convert your tuiple to list to change the elemrnt of the  list
+li=list(coordinates)
+li
+li[1]="Hi"
+li
+coordinates=tuple(li)
+#Dictionary
+person = {"name": "jhon", "age": 30} #get all keys here name and age is key and jhon and 30 is keys values.
+print(person.keys())
+print(person.values()) #get all values
+print(person.items()) #get key-value pairs
+print(person.get("name")) #get value by key
+person.update({"height": 100}) #update dictionary with another dictionary
+person
+person.pop("age") #Remove key-value pair by key
+print(person)
+print(len(person))
+
+#set
+se={1,2,3,4}
+#not allow duplicates
+se={1,1,1,1,1}
+se
+print(len(se))
+##add
+se.add(9)
+se
+se.update({10,11,12}) #add another set
+se
+se.remove(9)
+se
+
+#Boolean
+is_active = True
+#Inbult function add operations for boolean
+print(int(is_active)) #convert to integer(1 for true and 0 for false)
+print(bool(0)) #convert integer to boolean(true)
+print(bool(1)) # convert integer to boolean (false)
+print(is_active and False) #logical And if all the value is true then output is truetherwise false
+print(is_active or False) #logical Or if one value is true the all the output is true of if all value is false then output ids false.
+print(not is_active) # logical NOT
+----------------------------------------------------------------------------------------------------------
+Conditionals
+Defination: Conditional statement in python(if,elif,else) are used to execute code basr=ed on certain condition.
+Use Case in Real Life: Conditionals can be used in an e-commerce application to provide different pricing tries based on user membership levels(e.g, standard,premium,VIP).
+
+#Basic if-elif-else statement
+age = 20
+
+if age < 18:
+  print("Minor")
+elif age >= 18 and age < 65:
+  print("Adult")
+else:
+    print("Senior")
+-----------------------------------------
+#Cheaking even or odd
+number = 41
+if number % 2 == 0:
+  print("Even number")
+else:
+  print("Odd number")
+-------------------------------------------
+#Grade Evaluation
+score = 85
+if score >= 90:
+  print("Grade: A")
+elif score >= 80:
+  print("Grade: B")
+elif score >= 70:
+  print("Grade: c")
+elif score >= 60:
+  print("Grade: D")
+else:
+  print("Grade: F")
+--------------------------------------------
+#Temperature check
+temperature = 30
+if temperature > 30:
+  print("its a hot day")
+elif temperature >= 20:
+  print("its a nice day")
+else:
+  print("its cold day")
+--------------------------------------------
+#Nested conditionals for BMI(body mass index) calculator
+weight = 70 # in kg
+height = 1.75 #in meter
+bmi = weight / (height ** 2)
+if bmi < 18.5:
+  print("Underweight")
+else:
+  if bmi < 24.9:
+    print("Normal weight")
+  else:
+    if bmi < 29.9:
+       print("Overweight")
+    else:
+      print("Obesity")
+
+-------------------------------------------------------------
+#Traffic light system
+traffic_light = "Green"
+if traffic_light == "Red":
+  print("Stop")
+elif traffic_light == "Yellow":
+  print("caution")
+elif traffic_light == "Green":
+  print("Go")
+else:
+    print("Invalid color")
+------------------------------------------------------------------
+#User login status
+is_logged_in = True
+has_permission = True
+if is_logged_in:
+   if has_permission:
+      print("Access granted")
+   else:
+      print("access denied: Insufficient permission")
+else:
+  print("Access denied : user not logged in")
+
+
+----------------------------------------------------------------------
+Loops
+
+Defination: loops are used to execute a block of code repeatedly.Python supports for and while loops.
+Use case in Real Life: Loops can be used to process items in a list. For instance,in a payroll system, a for loop could iterate through a list of employee and calculat their salaries.
+#For loop
+for i in range(5):
+  print(i)
+-----------------------------------------
+#Iteration over a List we can iterate over a str,list,set,dictionary,tuple
+fruits = ["apple","banana","cherry","date"]
+for fruit in fruits:
+  print(fruit)
+
+----------------------------------------------------------
+#Iteration over a string
+g="Hello"
+for char in g:
+  print(char)
+----------------------------------------------------
+#Iteration over Dic
+p={"name": "Jhon", "age": 30, "city" : "Newyork"}
+for key, value in p.items():
+    print(f"{key}: {value}")
+-------------------------------------------
+#using the ramge() function with a step
+for i in range(0,10,2):
+  print
+-----------------------------------------------------
+#nested for loops
+for i in range(3):
+  for j in range(2):
+    print(f"i = {i}, j = {j}")
+-----------------------------------------------------
+#using the enumerate() Function tries to return index of list and elements of the list
+f={"Apple","Banana","cherry"}
+for index,f in enumerate(f):
+  print(f"{index}: {f}")
+----------------------------------------------
+#while loop
+count = 0
+while count < 5:
+  print(count)
+  count += 1
+-------------------------------
+#while loop with break
+count =0
+while True:
+  print(count)
+  count+=1
+  if count >= 5:
+    break
+----------------------------------
+#while loop with continue
+count = 0
+while count < 10:
+  count += 1
+  if count % 2 == 0:
+    continue
+  print(count)
+----------------------------------------------
+#using a while loop to process user input
+u_i = ""
+while u_i.lower() != "quit":
+  u_i = input("Enter something (or type 'quit' to exit): ")
+  print(f"You entred:  {u_i}")
+----------------------------------------------------
+#simmulating a countdown
+countdown = 10
+while countdown > 0:
+  print(countdown)
+  countdown -= 1
+print("Blast off")
+---------------------------------------------------
+#using a while loop for validation
+password = ""
+while len(password) < 8:
+  password = input("Enter a password(must be at least 8 character long): ")
+  if len(password)<8:
+    print("password too short. Try again. ")
+  print("password accepted")
+----------------------------------------------------------
+Real-life Example - Managing a Grocery Store Inventory
+
+Defination:This example combines variable,data types,conditionals,and loops to manage a grocery store inventory.
+Use case in Real Life: A grocery store needs to keep track of its inventory,update it based on sales and restocks, and check the status of items.
+
+#Variable to store inventory data
+store_name = "Green Grocery"
+inventory = {
+    "apples" : 50,"banana" : 30, "cherries" : 20
+}
+#Data type:Dictionary to store inventory
+#Data type: Integer for items quantaties
+#Conditional: check inventory status
+def check_inventory(item):
+  if inventory[item] > 0:
+    return f"{item.capitalize()} are in stock: {inventory[item]}"
+  else:
+      return f"{item.capitalize()} are out of stock."
+#loop update inventory
+def update_inventory(item,quantity):
+  if item in inventory:
+    inventory[item] += quantity
+  else:
+    inventory[item] = quantity
+#check and update inventory
+print(check_inventory("apples"))
+update_inventory("apples", -10)
+print(check_inventory("apples"))
+update_inventory("oranges", 40)
+print(check_inventory("oranges"))
+
+outputs:
+Apples are in stock: 50
+Apples are in stock: 40
+Oranges are in stock: 40
+
