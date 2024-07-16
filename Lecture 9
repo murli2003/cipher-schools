@@ -1,0 +1,65 @@
+Funtion of data Cleaning
+TRIM
+PROPER
+UPPER
+LOWER
+LEFT
+SPLIT
+IF
+IFERROR
+MID
+RIGHT
+CONCATENATE
+TEXJOIN
+-------------------------------------------------------------------------
+Text _cleaning functions
+-------------------------------------------------------------------------
+TRIM USE:
+TRIM remove all the spaces from the text except single spaces between the letter.Used for text cleaning.
+Syntax: TRIM(Text)
+
+PROPER FUNCTION:
+convert the first letter in the capital formate.
+Syntsx: PROPER(Text)
+
+UPPER FUNCTION:
+Convert the text to complete upper case.
+Syntax: UPPER(Text)
+
+LOWER FUNCTION:
+Convert the text to complete lower case.
+Syntax: LOWER(Text)
+-------------------------------------------------------------------------
+Text_Manipulation functions
+-------------------------------------------------------------------------
+LEFT FUNCTION: 
+Retuen first letter from text stream.
+Syntax: LEFT(A2,search("",A2)-1)
+
+MID FUNCTION:
+Return the specific number of character fron where you want to extract.
+Syntax: MID(A2,SEARCH("",A2)+1,LEN(A2))
+
+RIGHT FUNCTION:
+Return last character in a text based on the specified character.
+Syntax: RIGHT(A2,LEN(A2)-SEARCH("",A2))
+-----------------------------------------------------------------------------
+TEXT_Combining Function
+_________________________________________________________________________________________
+CONCATENATE FUNCTION:
+Used to concatenate the two text.
+Syntax: CONCATENATE(A2,"",B2)
+
+TEXTJOIN:
+Combine text from multiple range has seperate part to specifie the delimeter.
+Syntax:TEXTJOIN("",TRUE,A2,B2)
+------------------------------------------------------------------------------------------
+CONDITIONAL_LOOGIC FUNCTION
+----------------------------------------------------------------------------------------------
+used for logical condition either true or false.
+
+IF FUNCTION:
+Syntax: IF(A2>B2."A","B")
+
+IFERROR FUNCTION:Way of error handling.
+Syntax: IFERROR(A2/B2,"CHECK YPOUR DATA")
