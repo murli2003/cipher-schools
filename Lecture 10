@@ -1,0 +1,28 @@
+#Time Date manupulation function(pIpeline)
+-------------------------------------------------------------------
+DATE
+DAY
+EDATE
+WEEKDAY
+HOUR
+MINUTE
+-----------------------------------------------------------------------
+Date Function:
+DATE(YYYY,MM,DD)-ACTUAL FORMATE (DD-MM-YYYY)
+
+DAY Function:
+DAY - Returns the day of the month.
+Syntax- =DAY(26-01-2024) - 26
+
+EDATE - Return the serial number of the day after that we have to convert it to date by using formate cell.
+Syntax: =EDATE(Start date,NO of month)
+
+WEEKDAY Function:Gives exact day.
+Syntax: =WEEKDAY(serial number) it will return in the date formate so after that go to the formate cell then general formate to return exact day.
+
+HOUR FUNCTION:Return exact hour.
+Syntax: HOUR(Date and Time)
+
+MINUTE FUNCTION: Return Minute.
+Syntax: MINUTE()
+
