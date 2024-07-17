@@ -1,0 +1,117 @@
+
+Introduction to Plotly
+
+Defination:
+
+Plotly:Plotly is a graphing library that makes interactive, publication-quality graphs online. It supports a wide variety of charts, including line plots, scatter plots, bar charts, histograms, heatmaps, and more. Plotly is particularly useful for creating interactive visualizations that can be embedded in web applications and shared online.
+
+Key Features of Plotly
+
+Interactivity: Plotly charts are interactive by default, allowing users to zoom, pan, and hover ove data points to get more information.
+Wide Range of Chart Types: Plotly supports a variety of chart types, including basic plots, statistical plots, 30 plots, and maps.
+Customization: Extensive options to customize the appearance and behavior of charts.
+Integration: Easy integration with web applications and other libraries like Dash for building interactive dashboards.
+LOADING DATASETS
+
+
+#To install Plotly
+pip install plotly
+
+
+     
+Requirement already satisfied: plotly in /usr/local/lib/python3.10/dist-packages (5.15.0)
+Requirement already satisfied: tenacity>=6.2.0 in /usr/local/lib/python3.10/dist-packages (from plotly) (8.4.2)
+Requirement already satisfied: packaging in /usr/local/lib/python3.10/dist-packages (from plotly) (24.1)
+
+import pandas as pd
+df = pd.read_csv('Sales2.csv')
+print(df.head())
+     
+   sales  quantity      date   products region  profit
+0    200        10  7/1/2024  Product A  North      50
+1    150        15  7/2/2024  Product B  South      30
+2    300        30  7/3/2024  Product C   East     100
+3    100         8  7/4/2024  Product D   West      20
+4    250        20  7/5/2024  Product E  North      60
+
+from google.colab import drive
+drive.mount('/content/drive')
+     
+Creating a Line Plot
+
+A line plot to visualize the sales trend over time.
+
+
+import plotly.express as px
+# Creating a line plot
+fig = px.line(df, x='date', y='sales', title='Sales Trend over time', markers = True)
+fig.show()
+     
+CREATING A BAR CHART
+
+
+import plotly.express as px
+# Creating a bar chart
+fig = px.bar(df, x='region', y='sales', title='Sales by region', color='region')
+fig.show()
+
+     
+CREATING A SCATTER PLOT
+
+
+import plotly.express as px
+# Creating a scatter plot
+fig = px.scatter(df, x='sales', y='profit', title='Sales vs profit', color='region', size = 'quantity', hover_data=['products'] )
+fig.show()
+
+     
+Create a Histogram
+
+
+fig = px.histogram(df, x='sales', title='Distribution of sales', nbins=10)
+fig.show()
+     
+creating a pie chart
+
+
+import plotly.express as px
+# Creating a pie chart
+fig = px.pie(df, names='products', values='sales', title='Sales by Products')
+fig.show()
+     
+Interactive sales Trend Over Time
+
+
+import pandas as pd
+import plotly.express as px
+
+data = {'City': ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Phoenix'],
+        'State': ['NY', 'CA', 'IL', 'TX', 'AZ'],
+        'Population': [8419000, 3500400, 2716000, 2328000, 1650000]}
+
+# Creating the DataFrame
+df = pd.DataFrame(data)
+
+# Create a geographical map
+fig = px.choropleth(df, locations='State', locationmode='USA-states', color='Population', scope='usa', title='Population by State')
+fig.show()
+     
+
+import pandas as pd
+import plotly.express as px
+
+# Creating a sample DataFrame
+data = {'date': pd.date_range(start='2022-01-01', periods=10),
+        'sales': [100, 150, 200, 180, 220, 250, 300, 280, 320, 350],
+        'region': ['A', 'B', 'A', 'B', 'A', 'B', 'A', 'B', 'A', 'B'],
+        'products': ['X', 'Y', 'Z', 'X', 'Y', 'Z', 'X', 'Y', 'Z', 'X'],
+        'quantity': [10, 15, 20, 18, 22, 25, 30, 28, 32, 35],
+        'profit': [50, 70, 90, 80, 100, 120, 150, 140, 160, 180]}
+
+data_frame = pd.DataFrame(data)
+
+# Creating a line chart
+fig = px.line(data_frame, x='date', y='sales', title='Interactive sales trend over Time', color='region', markers=True, hover_data=['products', 'quantity', 'profit'])
+fig.show()
+
+     
