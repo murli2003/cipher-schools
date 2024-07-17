@@ -1,0 +1,127 @@
+
+Correlation
+
+Definition: Correlation measures the strength and direction of a linear relationship between two variables.
+
+Formulas:
+
+Pearson Correlation Coefficient (r): r= n(Σxy) – (Σx)(Σy) / ν [ηΣx^2 - (Σx)²] [η Σy² - (Σy)²] Where n is the number of pairs, 2 and y are the individual sample points indexed with i.
+Concepts:
+
+• Strength of Relationship: The correlation coefficient ranges from -1 to +1. A value close to +1 implies a strong positive relationship, close to -1 implies a strong negative relationship,and around 0 implies no linear relationship.
+
+• Direction of Relationship: Indicates whether the variables increase together (positive) or as one increases, the other decreases (negative).
+
+Real-life Use Case:
+
+• Determining the relationship between consumer income and expenditure on luxury items.
+
+• In finance, correlating different stock movements to diversify the portfolio
+
+Correlation Matrix:
+
+Types of Correlation Coefficients:
+
+Pearson Correlation Coefficient:
+Measures the linear relationship between two continuous variables. It assumes that the variables follow a normal distribution.
+
+Spearman's Rank Correlation Coefficient:
+A non-parametric measure of rank correlation, assessing how well the relationship between two variables can be described using a monotonic function.
+
+Kendall's Tau:
+Another rank-based correlation coefficient, often used for data with a natural ordinal classification.
+
+Understanding a Correlation Matrix:
+
+A correlation matrix displays correlation coefficients between sets of variables. Each cell in the matrix represents the correlation between two variables. The value ranges from -1 to +1, where:
+
+• +1 indicates a perfect positive linear relationship
+
+• -1 indicates a perfect negative linear relationship
+
+• 0 indicates no linear relationship.
+
+Real-Life Use Cases:
+
+Finance:
+Correlation matrices are used to understand the relationships between different stocks or financial instruments, aiding in portfolio diversification.
+
+Marketing:
+Analyzing customer data to find correlations between different buying customer behaviors.
+
+Healthcare:
+Studying correlations between different lifestyle factors and health outcomes.
+
+
+import pandas as pd
+import numpy as np
+#seed for reproducibility
+np.random.seed(42)
+#Generate sample data
+
+data={
+    'Age': np.random.normal(30,10,100).astype(int),
+    'Annual Income (K$)' : np.random.normal(50, 20, 100).astype(int),
+    'Spending Score (1-100)': np.random.randint(1, 100, 100),
+    'Years with Company': np.random.normal(5, 2, 100).astype(int)
+}
+#Create DataFrame
+df = pd.DataFrame(data)
+df
+     
+Age	Annual Income (K$)	Spending Score (1-100)	Years with Company
+0	34	21	2	7
+1	28	41	90	3
+2	36	43	17	5
+3	45	33	33	6
+4	27	46	9	3
+...	...	...	...	...
+95	15	57	22	7
+96	32	32	93	6
+97	32	53	67	4
+98	30	51	76	4
+99	27	27	26	2
+100 rows × 4 columns
+
+Distributions
+
+
+
+
+2-d distributions
+
+
+
+
+Time series
+
+
+
+
+Values
+
+
+
+
+
+!pip install tabulate
+     
+Requirement already satisfied: tabulate in /usr/local/lib/python3.10/dist-packages (0.9.0)
+
+from tabulate import tabulate
+     
+
+correlation_matrix = df.corr()
+print(tabulate(correlation_matrix, headers = 'Keys', tablefmt = 'grid', numalign = "right", floatfmt=".2f"))
+     
++------------------------+-------+-------+-------+-------+
+|                        |     K |     e |     y |     s |
++========================+=======+=======+=======+=======+
+| Age                    |  1.00 | -0.13 |  0.02 |  0.01 |
++------------------------+-------+-------+-------+-------+
+| Annual Income (K$)     | -0.13 |  1.00 |  0.02 | -0.13 |
++------------------------+-------+-------+-------+-------+
+| Spending Score (1-100) |  0.02 |  0.02 |  1.00 | -0.13 |
++------------------------+-------+-------+-------+-------+
+| Years with Company     |  0.01 | -0.13 | -0.13 |  1.00 |
++------------------------+-------+-------+-------+-------+
