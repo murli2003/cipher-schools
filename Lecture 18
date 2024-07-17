@@ -1,0 +1,215 @@
+
+Introduction to Matplotlib and Seaborn
+
+Defination:
+
+Matplotlib: Matplotlib is a comprehensive library for creating stastic,animated, and interactive visualizations in Python.It provides an Object-oriented API for embedding plots into applications using general-purpose GUI toolkits.
+
+Seaborn: Seaborn is a Python data Visualization library based on Matplotlib.It provides a high-level interface for drawing attrective and informative statistical graphics.
+
+Use case in Real life:
+
+Data Exploration:Create various plots to visualize data distributions and relationships between variables during the expolatory data analysis(EDA) phase.
+
+Statistical Analysis: Use visualizations to understand statical properties of datasets,such as distribution plots,histograms, and pair plots to identify correlations and patterns.
+
+Business Reporting: Generate business reports with visualizations that provides insights into sales performance, customer behavior, and market ternds.
+
+Creating sSimple Line Plot with Matplotlib
+
+
+pip install matplotlib
+     
+Requirement already satisfied: matplotlib in /usr/local/lib/python3.10/dist-packages (3.7.1)
+Requirement already satisfied: contourpy>=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (1.2.1)
+Requirement already satisfied: cycler>=0.10 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (4.53.0)
+Requirement already satisfied: kiwisolver>=1.0.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (1.4.5)
+Requirement already satisfied: numpy>=1.20 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (1.25.2)
+Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (24.1)
+Requirement already satisfied: pillow>=6.2.0 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (9.4.0)
+Requirement already satisfied: pyparsing>=2.3.1 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (3.1.2)
+Requirement already satisfied: python-dateutil>=2.7 in /usr/local/lib/python3.10/dist-packages (from matplotlib) (2.8.2)
+Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.10/dist-packages (from python-dateutil>=2.7->matplotlib) (1.16.0)
+
+import matplotlib.pyplot as plt
+#most of the utilities lies on pyplot
+#Data
+#markers
+#shortcut Method
+#different types of line solid,dotted dash dashdot
+#ls,-.,--,line color,line width
+#show function showcase the last graph in the end
+x = [1, 2, 3, 4, 5]
+y = [2, 3, 5, 7, 11]
+#Creating a line plot,marker size,marker color mec mfc
+plt.plot(x, y,ls="-.",color='r',lw="3",marker='p',mfc='g',ms="20")
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('Sample Line plot')
+plt.show()
+     
+
+
+import numpy as np
+y1=np.array([3, 8,1,10])
+y2=np.array([6, 2,7,11])
+plt.plot(y1)
+plt.plot(y2)
+plt.show()
+
+     
+
+Creating a simple scattred plot
+
+
+#Data
+x = [1, 2, 3, 4, 5]
+y = [2, 3, 5, 7, 11]
+#creating a scatter plot
+plt.scatter(x, y,color='g')
+plt.xlabel('sales')
+plt.ylabel('price')
+plt.title('Sample Line plot')
+plt.show()
+
+
+
+     
+
+Creating a simple Bar Plot with Matplotlib
+
+
+#Data
+import matplotlib.pyplot as plt
+products = ['pc','TV','Ref','Micro']
+sales = [4, 7, 1, 8]
+#creating a bar plot
+plt.barh(products, sales,color='black',height=0.1)
+plt.xlabel('products')
+plt.ylabel('sales(in 1000s)')
+plt.title("simple Bar plot")
+plt.show()
+
+     
+
+Creating a simple Histogram with Matplotlib
+
+
+#Data
+data = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+#Creating a Histogram
+import matplotlib.pyplot as plt
+plt.hist(data, bins=4)
+plt.xlabel('value')
+plt.ylabel('frequency')
+plt.title('sample histogram')
+plt.show()
+     
+
+Creating Subplots with Matplotlib
+
+
+#Data
+x=[1, 2, 3, 4, 5]
+y1=[2, 3, 5, 7, 11]
+y2=[1, 4, 6, 8, 10]
+
+#creating subplots
+fig, axs = plt.subplots(2)
+axs[0].plot(x,y1)
+axs[0].set_title('First plot')
+axs[1].plot(x, y2, 'tab:orange')
+axs[1].set_title('second plot')
+#Displaying the plot
+plt.tight_layout()
+plt.show()
+
+     
+
+Adding ANnotations with matplotlib
+
+
+x = [1, 2, 3, 4, 5]
+y = [2, 3, 5, 7, 11]
+#Creating a plot with annotations
+plt.plot(x, y)
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('plot with Annotations')
+plt.annotate('Peak',xy=(5,11),xytext=(4,10),
+             arrowprops=dict(facecolor='black', shrink=0.05))
+plt.show()
+     
+
+Creating a simple line plot with simple Seaborn
+
+
+#Built on tip of matplotlib
+#Beautiful style
+#pip install seaborn
+import seaborn as sns
+import matplotlib.pyplot as plt
+x1 = [1, 2, 3, 4, 5]
+y = [2, 3, 5, 7, 11]
+#creating line plot
+sns.scatterplot(x=x, y=y)
+plt.xlabel('X-axis')
+plt.ylabel('Y-axis')
+plt.title('simple plot with seaborn')
+plt.show()
+
+
+
+
+
+
+     
+
+Creating a Simple Bar Plot with Seaborn
+
+
+categories = ['A', 'B', 'C', 'D']
+values = [4, 7, 1, 8]
+#Creating a bar plot
+sns.barplot(x=categories,y=values)
+plt.xlabel('categorical')
+plt.ylabel('values')
+plt.title('Simple bar plot seaborn')
+plt.show()
+     
+
+
+#Data
+data = [1, 2, 2, 3, 3, 3, 4, 4, 4, 4]
+sns.histplot(data, bins=4)
+plt.xlabel('value')
+plt.ylabel('frequency')
+plt.title('sample histogram')
+plt.show()
+     
+
+Creating a Pari Plot with Seaborn
+
+
+import seaborn as sns
+import matplotlib.pyplot as pit
+from sklearn.datasets import load_iris #flower types data set is iris
+iris = load_iris()
+iris_data = sns.load_dataset("iris")
+#Creating a pair plot
+sns.pairplot(iris_data, hue = 'species')
+plt.title('pair plot with seaborn')
+plt.show()
+     
+
+Creating a HeatMap with seaborn
+
+
+import numpy as np
+#Data
+data = np.random.rand(10,12)
+sns.heatmap(data)
+plt.title('Heatmap with Seaborn')
+plt.show()
+     
